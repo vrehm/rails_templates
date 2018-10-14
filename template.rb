@@ -352,8 +352,3 @@ after_bundle do
   git add: '.'
   git commit: "-m 'Initial commit'"
 end
-
-after_bundle do
-  run "cd #{APP_NAME}"
-  rails_command 'assets:precompile'
-end
