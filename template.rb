@@ -20,6 +20,7 @@ gem 'premailer-rails'
 gem 'semantic-ui-sass'
 gem 'rails-ujs'
 gem 'jquery-rails'
+gem 'devise-semantified'
 
 gem_group :development, :test do
   gem 'dotenv-rails'
@@ -291,7 +292,7 @@ create_file 'app/views/layouts/application.html.erb' do
 end
 
 after_bundle do
-  rails_command 'generate devise:views User'
+  rails_command 'g devise:views:semantified'
   rails_command 'db:migrate db:seed'
   rails_command 'assets:precompile'
   git add: '.'
