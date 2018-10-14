@@ -185,6 +185,7 @@ Read more at: https://github.com/plataformatec/devise
 }
 end
 
+gsub_file 'config/initializers/devise.rb', '# config.scoped_views = false', 'config.scoped_views = true'
 rails_command 'db:migrate db:seed'
 
 ##############################
@@ -290,7 +291,7 @@ create_file 'app/views/layouts/application.html.erb' do
 end
 
 after_bundle do
-  rails_command 'generate devise:views users'
+  rails_command 'generate devise:views'
   rails_command 'db:migrate db:seed'
   rails_command 'assets:precompile'
   git add: '.'
