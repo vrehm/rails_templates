@@ -186,7 +186,7 @@ Read more at: https://github.com/plataformatec/devise
 }
 end
 
-rails_command 'db:seed'
+rails_command 'db:migrate db:seed'
 
 ##############################
 ## APPLYING CUSTOM FILES
@@ -270,7 +270,10 @@ create_file 'app/views/layouts/application.html.erb' do
 
   <body>
     <%= yield %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application',
+      'data-turbolinks-track': 'reload',
+      'data-turbolinks-suppress-warning': 'true',
+      'defer': 'true' %>
   </body>
 </html>
 }
