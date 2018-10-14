@@ -24,7 +24,7 @@ gem_group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7'
-  gem 'pry-bybug'
+  gem 'pry-byebug'
 end
 
 # Remove all coments and empty space fron the gemfile
