@@ -355,4 +355,5 @@ end
 
 after_bundle do
   run "cd #{APP_NAME}"
+  rails_command 'assets:precompile'
 end
