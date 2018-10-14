@@ -291,7 +291,7 @@ create_file 'app/views/layouts/application.html.erb' do
 end
 
 after_bundle do
-  rails_command 'generate devise:views'
+  rails_command 'generate devise:views User'
   rails_command 'db:migrate db:seed'
   rails_command 'assets:precompile'
   git add: '.'
