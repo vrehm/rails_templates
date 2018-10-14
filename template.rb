@@ -17,7 +17,7 @@ gem 'sidekiq'
 gem 'config'
 gem 'devise'
 gem 'premailer-rails'
-gem 'semantic-ui-rails'
+gem 'semantic-ui-sass'
 
 gem_group :development, :test do
   gem 'dotenv-rails'
@@ -164,6 +164,7 @@ end
 ##############################
 generate 'devise:install'
 generate 'devise user'
+generate 'devise:views users'
 
 if generate_users
   in_root do
@@ -188,8 +189,7 @@ end
 ## APPLYING CUSTOM FILES
 ##############################
 create_file 'Procfile' do
-  %{release: bundle exec rails db:migrate
-web: bundle exec puma -C config/puma.rb
+  %{web: bundle exec puma -C config/puma.rb
 worker: bundle exec sidekiq -C config/sidekiq.yml
 }
 end
