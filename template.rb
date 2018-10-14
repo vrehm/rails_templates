@@ -25,7 +25,6 @@ gem_group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7'
   gem 'pry-byebug'
-  gem 'foreman'
 end
 
 # Remove all coments and empty space fron the gemfile
@@ -208,7 +207,7 @@ create_file 'app/views/home/show.html.erb' do
   %{<div class="ui fixed inverted menu">
   <div class="ui container">
     <a href="#" class="header item">
-      <img class="logo" src="assets/images/logo.png">
+      <img class="logo" src="https://semantic-ui.com/examples/assets/images/logo.png">
       Project Name
     </a>
     <a href="#" class="item">Home</a>
@@ -237,13 +236,13 @@ create_file 'app/views/home/show.html.erb' do
   <h1 class="ui header">Semantic UI Fixed Template</h1>
   <p>This is a basic fixed menu template using fixed size containers.</p>
   <p>A text container is used for the main container, which is useful for single column layouts</p>
-  <img class="wireframe" src="assets/images/wireframe/media-paragraph.png">
-  <img class="wireframe" src="assets/images/wireframe/paragraph.png">
-  <img class="wireframe" src="assets/images/wireframe/paragraph.png">
-  <img class="wireframe" src="assets/images/wireframe/paragraph.png">
-  <img class="wireframe" src="assets/images/wireframe/paragraph.png">
-  <img class="wireframe" src="assets/images/wireframe/paragraph.png">
-  <img class="wireframe" src="assets/images/wireframe/paragraph.png">
+  <img class="wireframe" src="https://semantic-ui.com/examples/assets/images/wireframe/media-paragraph.png">
+  <img class="wireframe" src="https://semantic-ui.com/examples/assets/images/wireframe/paragraph.png">
+  <img class="wireframe" src="https://semantic-ui.com/examples/assets/images/wireframe/paragraph.png">
+  <img class="wireframe" src="https://semantic-ui.com/examples/assets/images/wireframe/paragraph.png">
+  <img class="wireframe" src="https://semantic-ui.com/examples/assets/images/wireframe/paragraph.png">
+  <img class="wireframe" src="https://semantic-ui.com/examples/assets/images/wireframe/paragraph.png">
+  <img class="wireframe" src="https://semantic-ui.com/examples/assets/images/wireframe/paragraph.png">
 </div>
 
 <div class="ui inverted vertical footer segment">
@@ -282,7 +281,7 @@ create_file 'app/views/home/show.html.erb' do
       </div>
     </div>
     <div class="ui inverted section divider"></div>
-    <img src="assets/images/logo.png" class="ui centered mini image">
+    <img src="https://semantic-ui.com/examples/assets/images/logo.png" class="ui centered mini image">
     <div class="ui horizontal inverted small divided link list">
       <a class="item" href="#">Site Map</a>
       <a class="item" href="#">Contact Us</a>
@@ -316,36 +315,37 @@ create_file 'app/assets/javascripts/application.js' do
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
 // Loads all Semantic javascripts
 //= require semantic-ui
 //= require_tree .
 }
 end
 
-create_file 'app/views/layouts/application.html.erb' do
-  %{<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Standard Meta -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+# create_file 'app/views/layouts/application.html.erb' do
+#   %{<!DOCTYPE html>
+# <html>
+#   <head>
+#     <!-- Standard Meta -->
+#     <meta charset="utf-8" />
+#     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+#     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <!-- Site Properties -->
-    <title><%= yield(:title) %></title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+#     <!-- Site Properties -->
+#     <title><%= yield(:title) %></title>
+#     <%= csrf_meta_tags %>
+#     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+#     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+#     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+#   </head>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
-}
-end
+#   <body>
+#     <%= yield %>
+#   </body>
+# </html>
+# }
+#end
 
 after_bundle do
   rails_command 'db:migrate'
@@ -354,5 +354,5 @@ after_bundle do
 end
 
 after_bundle do
-  run 'foreman start'
+  run "cd #{APP_NAME}"
 end
