@@ -18,6 +18,8 @@ gem 'config'
 gem 'devise'
 gem 'premailer-rails'
 gem 'semantic-ui-sass'
+gem 'rails-ujs'
+gem 'jquery-rails'
 
 gem_group :development, :test do
   gem 'dotenv-rails'
