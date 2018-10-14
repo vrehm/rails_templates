@@ -165,7 +165,6 @@ end
 ##############################
 generate 'devise:install'
 generate 'devise user'
-generate 'devise:views users'
 
 if generate_users
   in_root do
@@ -291,7 +290,8 @@ create_file 'app/views/layouts/application.html.erb' do
 end
 
 after_bundle do
-  rails_command 'db:migrate'
+  rails_command 'generate devise:views users'
+  rails_command 'db:migrate db:seed'
   rails_command 'assets:precompile'
   git add: '.'
   git commit: "-m 'Initial commit'"
